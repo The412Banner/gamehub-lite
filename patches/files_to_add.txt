@@ -1,4 +1,4 @@
-﻿original/META-INF/MANIFEST.MF
+original/META-INF/MANIFEST.MF
 original/META-INF/GAMEHUB.SF
 original/META-INF/GAMEHUB.RSA
 res/drawable/app_update_dialog_close.webp

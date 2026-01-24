@@ -1,4 +1,4 @@
-﻿diff --git a/res/layout/winemu_sidebar_controls_fragment.xml b/res/layout/winemu_sidebar_controls_fragment.xml
+diff --git a/res/layout/winemu_sidebar_controls_fragment.xml b/res/layout/winemu_sidebar_controls_fragment.xml
 index 65f220893..203786ab4 100644
 --- a/res/layout/winemu_sidebar_controls_fragment.xml
 +++ b/res/layout/winemu_sidebar_controls_fragment.xml

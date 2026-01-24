@@ -1,4 +1,4 @@
-﻿diff --git a/smali_classes4/com/xj/winemu/sidebar/SidebarControlsFragment.smali b/smali_classes4/com/xj/winemu/sidebar/SidebarControlsFragment.smali
+diff --git a/smali_classes4/com/xj/winemu/sidebar/SidebarControlsFragment.smali b/smali_classes4/com/xj/winemu/sidebar/SidebarControlsFragment.smali
 index b6c70a374..ec65cf1d5 100644
 --- a/smali_classes4/com/xj/winemu/sidebar/SidebarControlsFragment.smali
 +++ b/smali_classes4/com/xj/winemu/sidebar/SidebarControlsFragment.smali

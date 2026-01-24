@@ -1,4 +1,4 @@
-﻿diff --git a/smali_classes5/com/xj/pcvirtualbtn/inputcontrols/InputControlsManager.smali b/smali_classes5/com/xj/pcvirtualbtn/inputcontrols/InputControlsManager.smali
+diff --git a/smali_classes5/com/xj/pcvirtualbtn/inputcontrols/InputControlsManager.smali b/smali_classes5/com/xj/pcvirtualbtn/inputcontrols/InputControlsManager.smali
 index 59d561a3f..58a38c0e4 100644
 --- a/smali_classes5/com/xj/pcvirtualbtn/inputcontrols/InputControlsManager.smali
 +++ b/smali_classes5/com/xj/pcvirtualbtn/inputcontrols/InputControlsManager.smali

@@ -1,4 +1,4 @@
-﻿diff --git a/res/values/styles.xml b/res/values/styles.xml
+diff --git a/res/values/styles.xml b/res/values/styles.xml
 index 142ace1f1..0fb233366 100644
 --- a/res/values/styles.xml
 +++ b/res/values/styles.xml

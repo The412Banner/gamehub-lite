@@ -91,7 +91,7 @@
      <string name="winemu_get_config_detail_failure">Failed to obtain the configuration scheme</string>
      <string name="winemu_gpu_driver">GPU Driver</string>
      <string name="winemu_guide_login_tips">Sync Steam play data, click to log in to your Steam account</string>
-@@ -3448,6 +3448,28 @@
+@@ -3448,6 +3448,27 @@
      <string name="winemu_sidebar_key_map_alpha">Touch Control Opacity</string>
      <string name="winemu_sidebar_key_mapping">Input Mapping</string>
      <string name="winemu_sidebar_key_mouse_speed">Mouse Speed</string>
@@ -116,7 +116,6 @@
 +    <string name="rts_action_middle_mouse">Middle Mouse Button</string>
 +    <string name="rts_action_wasd_keys">WASD Keys</string>
 +    <string name="rts_action_arrow_keys">Arrow Keys</string>
-+    <string name="winemu_sidebar_fps_touch_controls">FPS Touch Controls</string>
      <string name="winemu_sidebar_performance">Performance</string>
      <string name="winemu_sidebar_screen_brightness">Screen Brightness</string>
      <string name="winemu_sidebar_switch_input_mapping">Switch Touch Control Layout</string>

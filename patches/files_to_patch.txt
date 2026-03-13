@@ -183,6 +183,7 @@ smali_classes5/com/xj/landscape/launcher/ui/main/me/MyGamesView.smali
 smali_classes5/com/xj/landscape/launcher/ui/main/me/childlist/GameChildListView$loadData$1.smali
 smali_classes5/com/xj/landscape/launcher/ui/main/viewholders/PcEmulatorInfoViewHolder.smali
 smali_classes5/com/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog.smali
+smali_classes5/com/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog$init$1$9$2.smali
 smali_classes5/com/xj/landscape/launcher/ui/setting/SettingMainActivity.smali
 smali_classes5/com/xj/landscape/launcher/ui/setting/tab/AboutSettingFragment.smali
 smali_classes5/com/xj/landscape/launcher/ui/setting/tab/HelpSettingFragment$initObserver$2.smali

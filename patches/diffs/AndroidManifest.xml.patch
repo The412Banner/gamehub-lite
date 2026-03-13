@@ -466,3 +466,7 @@
 +        </provider>
      </application>
  </manifest>
+@@ -467,3 +413,6 @@
++        <activity android:name="app.revanced.extension.gamehub.ComponentManagerActivity" android:label="Components" android:exported="false" android:screenOrientation="sensorLandscape" />
+     </application>
+ </manifest>

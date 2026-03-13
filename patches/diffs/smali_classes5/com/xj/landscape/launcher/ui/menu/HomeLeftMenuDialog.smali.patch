@@ -94,3 +94,10 @@
      new-instance v3, Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog$MenuItem;
  
      sget v14, Lcom/xj/landscape/launcher/R$drawable;->menu_setting_normal:I
+@@ -1307,4 +1252,7 @@
+     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
++    invoke-static {v2}, Lapp/revanced/extension/gamehub/ComponentManagerHelper;->addComponentsMenuItem(Ljava/util/List;)V
++
+     return-void
+ .end method

@@ -71,5 +71,15 @@
 -    invoke-static/range {v0 .. v6}, Lcom/xj/common/utils/PermissionUtils;->J(Lcom/xj/common/utils/PermissionUtils;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)V
 -
      invoke-virtual/range {p0 .. p0}, Lcom/xj/landscape/launcher/ui/main/LandscapeLauncherMainActivity;->m2()V
- 
+
      invoke-virtual/range {p0 .. p0}, Lcom/xj/landscape/launcher/ui/main/LandscapeLauncherMainActivity;->X2()V
+@@ -3649,5 +3591,8 @@
+
+     invoke-virtual/range {p0 .. p0}, Lcom/xj/landscape/launcher/ui/main/LandscapeLauncherMainActivity;->X2()V
+
++    move-object/from16 v0, p0
++
++    invoke-static {v0}, Lapp/revanced/extension/gamehub/ComponentManagerHelper;->setupBciButton(Landroid/app/Activity;)V
++
+     return-void
+ .end method

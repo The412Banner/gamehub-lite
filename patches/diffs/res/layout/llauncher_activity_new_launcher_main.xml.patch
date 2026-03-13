@@ -1,8 +1,9 @@
 --- a/res/layout/llauncher_activity_new_launcher_main.xml
 +++ b/res/layout/llauncher_activity_new_launcher_main.xml
-@@ -13,9 +13,10 @@
+@@ -13,9 +13,11 @@
          <com.xj.user.view.UserAvatarView android:id="@id/right_user_avatar_view" android:padding="@dimen/mw_3dp" android:visibility="gone" android:layout_width="@dimen/mw_30dp" android:layout_height="@dimen/mw_30dp" />
          <com.xj.common.view.focus.focus.view.FocusableImageView android:id="@id/iv_search" android:padding="@dimen/mw_3dp" android:layout_width="@dimen/mw_30dp" android:layout_height="@dimen/mw_30dp" android:src="@drawable/llanuncher_ic_main_search" android:layout_marginStart="@dimen/mw_16dp" />
++        <com.xj.common.view.focus.focus.view.FocusableImageView android:id="@id/iv_bci_launcher" android:padding="@dimen/mw_3dp" android:layout_width="@dimen/mw_30dp" android:layout_height="@dimen/mw_30dp" android:src="@drawable/menu_setting_normal" android:layout_marginStart="@dimen/mw_16dp" />
          <com.xj.common.view.DownloadProgressIconView android:id="@id/iv_downloading" android:padding="@dimen/mw_3dp" android:visibility="gone" android:layout_width="@dimen/mw_30dp" android:layout_height="@dimen/mw_30dp" android:layout_marginStart="@dimen/mw_16dp" />
 -        <com.xj.common.view.focus.focus.view.FocusableImageView android:id="@id/iv_device_online" android:padding="@dimen/mw_3dp" android:layout_width="@dimen/mw_30dp" android:layout_height="@dimen/mw_30dp" android:src="@drawable/comm_ic_main_device_offline" android:layout_marginStart="@dimen/mw_16dp" />
 +        <com.xj.common.view.focus.focus.view.FocusableImageView android:id="@id/iv_device_online" android:padding="@dimen/mw_3dp" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="0.0dip" android:layout_height="0.0dip" android:src="@drawable/comm_ic_main_device_offline" android:layout_marginStart="0.0dip" />

@@ -1,0 +1,23 @@
+--- a/smali_classes5/com/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog$init$1$9$2.smali
++++ b/smali_classes5/com/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog$init$1$9$2.smali
+@@ -54,6 +54,16 @@
+ .method public final a(Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog$MenuItem;)V
+     .locals 4
+
++    iget-object v0, p0, Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog$init$1$9$2;->a:Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog;
++
++    iget-object v1, p0, Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog$init$1$9$2;->b:Landroidx/fragment/app/FragmentActivity;
++
++    invoke-static {v0, p1, v1}, Lapp/revanced/extension/gamehub/ComponentManagerHelper;->handleMenuItemClick(Ljava/lang/Object;Ljava/lang/Object;Landroid/app/Activity;)Z
++
++    move-result v0
++
++    if-eqz v0, :cond_bh_not_handled
++
++    return-void
++
++    :cond_bh_not_handled
++
+     const-string v0, "entity"
+
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V

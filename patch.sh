@@ -265,7 +265,7 @@ apply_patches() {
         fi
 
         if [ -f "$patch_file" ] && [ -f "$target" ]; then
-            if patch -s -N "$target" <"$patch_file" 2>/dev/null; then
+            if patch -s -N "$target" < "$patch_file" 2>/dev/null; then
                 count=$((count + 1))
             else
                 failed=$((failed + 1))

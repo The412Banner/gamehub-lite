@@ -23,7 +23,6 @@
 .method public run()V
     .locals 2
 
-    # Set rtslongPress flag to true (held for 200ms)
     iget-object v0, p0, Lcom/xj/pcvirtualbtn/inputcontrols/RangeScrollerRtsTask;->a:Lcom/xj/pcvirtualbtn/inputcontrols/RangeScroller;
 
     const/4 v1, 0x1

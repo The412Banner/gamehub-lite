@@ -1,10 +1,9 @@
 --- a/smali_classes4/com/xj/game/ui/game_library/GameLibraryActivity.smali
 +++ b/smali_classes4/com/xj/game/ui/game_library/GameLibraryActivity.smali
-@@ -1283,35 +1283,9 @@
-     move-object v0, v6
+@@ -1284,33 +1284,7 @@
  
      invoke-direct/range {v0 .. v5}, Lcom/xj/game/entity/GameLibraryTab;-><init>(Ljava/lang/String;Landroidx/fragment/app/Fragment;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
--
+ 
 -    new-instance v0, Lcom/xj/game/entity/GameLibraryTab;
 -
 -    sget v1, Lcom/xj/language/R$string;->game_mobile_games_tab:I
@@ -18,10 +17,9 @@
 -    sget-object v1, Lcom/xj/game/ui/game_library/fragment/MobileGameFragments;->k:Lcom/xj/game/ui/game_library/fragment/MobileGameFragments$Companion;
 -
 -    invoke-virtual {v1}, Lcom/xj/game/ui/game_library/fragment/MobileGameFragments$Companion;->a()Lcom/xj/game/ui/game_library/fragment/MobileGameFragments;
- 
+-
 -    move-result-object v10
-+    filled-new-array {v6}, [Lcom/xj/game/entity/GameLibraryTab;
- 
+-
 -    const/4 v12, 0x4
 -
 -    const/4 v13, 0x0
@@ -33,7 +31,7 @@
 -    invoke-direct/range {v8 .. v13}, Lcom/xj/game/entity/GameLibraryTab;-><init>(Ljava/lang/String;Landroidx/fragment/app/Fragment;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 -
 -    filled-new-array {v6, v0}, [Lcom/xj/game/entity/GameLibraryTab;
--
++    filled-new-array {v6}, [Lcom/xj/game/entity/GameLibraryTab;
+ 
      move-result-object v0
  
-     invoke-static {v0}, Lkotlin/collections/CollectionsKt;->p([Ljava/lang/Object;)Ljava/util/List;

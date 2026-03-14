@@ -1,50 +1,43 @@
 --- a/smali_classes4/com/xj/common/user/UserManager.smali
 +++ b/smali_classes4/com/xj/common/user/UserManager.smali
-@@ -290,20 +290,10 @@
-     .end annotation
+@@ -293,17 +293,7 @@
  
-     invoke-static {}, Lcom/blankj/utilcode/util/SPUtils;->f()Lcom/blankj/utilcode/util/SPUtils;
--
--    move-result-object v0
--
+     move-result-object v0
+ 
 -    const-string v1, "avatar"
 -
 -    const-string v2, ""
- 
+-
 -    invoke-virtual {v0, v1, v2}, Lcom/blankj/utilcode/util/SPUtils;->k(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 -
-     move-result-object v0
+-    move-result-object v0
 -
 -    const-string v1, "getString(...)"
- 
+-
 -    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
 +    const-string v0, "\ud83c\udfae"
  
      return-object v0
  .end method
-@@ -436,21 +426,11 @@
-     .end annotation
+@@ -439,17 +429,7 @@
  
-     invoke-static {}, Lcom/blankj/utilcode/util/SPUtils;->f()Lcom/blankj/utilcode/util/SPUtils;
--
--    move-result-object v0
--
+     move-result-object v0
+ 
 -    const-string v1, "nickname"
 -
 -    const-string v2, ""
 -
 -    invoke-virtual {v0, v1, v2}, Lcom/blankj/utilcode/util/SPUtils;->k(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
- 
-     move-result-object v0
- 
+-
+-    move-result-object v0
+-
 -    const-string v1, "getString(...)"
+-
+-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
 +    const-string v0, "\ud83c\udfae GameHubLite"
  
--    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
--
      return-object v0
  .end method
- 
 @@ -501,25 +481,11 @@
  .end method
  
@@ -85,13 +78,12 @@
      return v0
  .end method
  
-@@ -569,18 +540,8 @@
+@@ -569,17 +540,7 @@
  
      move-result-object v0
  
 -    const-string v1, "username"
-+    const-string v0, "GameHubLite"
- 
+-
 -    const-string v2, ""
 -
 -    invoke-virtual {v0, v1, v2}, Lcom/blankj/utilcode/util/SPUtils;->k(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -101,19 +93,18 @@
 -    const-string v1, "getString(...)"
 -
 -    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
--
++    const-string v0, "GameHubLite"
+ 
      return-object v0
  .end method
- 
-@@ -610,32 +571,12 @@
- 
+@@ -611,31 +572,11 @@
  .method public final isLogin()Z
      .locals 1
--
+ 
 -    invoke-virtual {p0}, Lcom/xj/common/user/UserManager;->getToken()Ljava/lang/String;
 -
 -    move-result-object v0
- 
+-
 -    invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
 -
 -    move-result v0

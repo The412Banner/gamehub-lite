@@ -1,14 +1,14 @@
 --- a/smali_classes5/com/xj/landscape/launcher/ui/main/me/MyGamesView.smali
 +++ b/smali_classes5/com/xj/landscape/launcher/ui/main/me/MyGamesView.smali
-@@ -5264,6 +5264,8 @@
- 
+@@ -5265,6 +5265,8 @@
  .method public final w0(Z)V
      .locals 2
-+
-+    const/4 p1, 0x0
  
++    const/4 p1, 0x0
++
      iput-boolean p1, p0, Lcom/xj/landscape/launcher/ui/main/me/MyGamesView;->isShowPcLink:Z
  
+     :try_start_0
 @@ -5353,6 +5355,8 @@
  .method public final x0(Z)V
      .locals 3

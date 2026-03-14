@@ -1,16 +1,15 @@
 --- a/smali_classes5/com/xj/landscape/launcher/ui/MainPageFragment.smali
 +++ b/smali_classes5/com/xj/landscape/launcher/ui/MainPageFragment.smali
-@@ -1003,19 +1003,7 @@
-     const/4 v2, 0x1
+@@ -1004,18 +1004,6 @@
  
      if-nez v0, :cond_0
--
+ 
 -    iget-boolean v3, p0, Lcom/xj/landscape/launcher/ui/MainPageFragment;->w:Z
 -
 -    if-eqz v3, :cond_0
 -
 -    iget-boolean v3, p0, Lcom/xj/landscape/launcher/ui/MainPageFragment;->x:Z
- 
+-
 -    if-eqz v3, :cond_0
 -
 -    iget-boolean v3, p0, Lcom/xj/landscape/launcher/ui/MainPageFragment;->y:Z

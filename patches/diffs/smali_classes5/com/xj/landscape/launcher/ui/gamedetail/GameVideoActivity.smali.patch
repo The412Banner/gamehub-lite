@@ -6,7 +6,7 @@
  .method public static final synthetic I1(Lcom/xj/landscape/launcher/ui/gamedetail/GameVideoActivity;)V
 -    .locals 0
 +    .locals 5
- 
++
 +    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 +
 +    move-result-object v0
@@ -18,7 +18,7 @@
 +    if-eqz v0, :cond_0
 +
 +    const-string v1, "is_intro_video"
-+
+ 
 +    const/4 v2, 0x0
 +
 +    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;Z)Z

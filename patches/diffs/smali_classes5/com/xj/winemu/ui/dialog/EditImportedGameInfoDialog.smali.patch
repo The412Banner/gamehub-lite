@@ -1,25 +1,24 @@
 --- a/smali_classes5/com/xj/winemu/ui/dialog/EditImportedGameInfoDialog.smali
 +++ b/smali_classes5/com/xj/winemu/ui/dialog/EditImportedGameInfoDialog.smali
-@@ -1639,62 +1639,44 @@
-     move-result-object v2
+@@ -1640,61 +1640,43 @@
  
      const/4 v3, 0x0
--
--    if-eqz v2, :cond_3
  
+-    if-eqz v2, :cond_3
+-
 -    sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 -
 -    const/16 v5, 0x21
 +    if-eqz v2, :cond_2
  
      const-string v6, "key_info"
--
+ 
 -    if-lt v4, v5, :cond_1
 -
 -    const-class v4, Lcom/xj/game/entity/ImportedGameEntity;
 -
 -    invoke-static {v2, v6, v4}, Lcom/google/android/play/core/integrity/a0;->a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
- 
+-
 -    move-result-object v2
 -
 -    check-cast v2, Landroid/os/Parcelable;

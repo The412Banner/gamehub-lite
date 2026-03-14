@@ -16,7 +16,7 @@
  # static fields
  .field public static final a:Landroid/util/SparseIntArray;
  
-@@ -42,163 +33,27 @@
+@@ -42,49 +33,11 @@
  
  # virtual methods
  .method public a()Ljava/util/List;
@@ -26,8 +26,7 @@
      new-instance v0, Ljava/util/ArrayList;
  
 -    const/4 v1, 0x6
-+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
- 
+-
 -    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 -
 -    new-instance v1, Landroidx/databinding/library/baseAdapters/DataBinderMapperImpl;
@@ -65,10 +64,11 @@
 -    invoke-direct {v1}, Lcom/xj/muugi/shortcut/DataBinderMapperImpl;-><init>()V
 -
 -    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
--
++    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
      return-object v0
  .end method
- 
+@@ -92,113 +45,15 @@
  .method public b(Landroidx/databinding/DataBindingComponent;Landroid/view/View;I)Landroidx/databinding/ViewDataBinding;
      .locals 0
  

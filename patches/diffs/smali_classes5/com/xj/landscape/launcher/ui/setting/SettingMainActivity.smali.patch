@@ -1,18 +1,17 @@
 --- a/smali_classes5/com/xj/landscape/launcher/ui/setting/SettingMainActivity.smali
 +++ b/smali_classes5/com/xj/landscape/launcher/ui/setting/SettingMainActivity.smali
-@@ -916,44 +916,9 @@
-     invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+@@ -917,41 +917,6 @@
  
      sget-object v2, Lcom/xj/common/config/AppConfig;->a:Lcom/xj/common/config/AppConfig$Companion;
--
+ 
 -    invoke-virtual {v2}, Lcom/xj/common/config/AppConfig$Companion;->l()Z
 -
 -    move-result v3
 -
 -    if-nez v3, :cond_0
- 
-     new-instance v3, Lcom/xj/landscape/launcher/ui/setting/holder/SettingLeftMenu;
- 
+-
+-    new-instance v3, Lcom/xj/landscape/launcher/ui/setting/holder/SettingLeftMenu;
+-
 -    sget v4, Lcom/xj/language/R$string;->llauncher_setting_main_menu_notification:I
 -
 -    sget v5, Lcom/xj/landscape/launcher/R$drawable;->llanuncher_icon_menu_notification_grey:I
@@ -40,11 +39,9 @@
 -
 -    invoke-interface {p1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 -
--    new-instance v3, Lcom/xj/landscape/launcher/ui/setting/holder/SettingLeftMenu;
--
-     sget v4, Lcom/xj/language/R$string;->llauncher_setting_main_menu_about:I
+     new-instance v3, Lcom/xj/landscape/launcher/ui/setting/holder/SettingLeftMenu;
  
-     sget v5, Lcom/xj/landscape/launcher/R$drawable;->llanuncher_icon_menu_about_grey:I
+     sget v4, Lcom/xj/language/R$string;->llauncher_setting_main_menu_about:I
 @@ -970,7 +935,7 @@
  
      move-result v2

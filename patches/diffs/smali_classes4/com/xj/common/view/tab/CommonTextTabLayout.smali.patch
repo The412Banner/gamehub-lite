@@ -1,15 +1,14 @@
 --- a/smali_classes4/com/xj/common/view/tab/CommonTextTabLayout.smali
 +++ b/smali_classes4/com/xj/common/view/tab/CommonTextTabLayout.smali
-@@ -27,7 +27,9 @@
+@@ -27,6 +27,8 @@
  
  .field public r:Z
  
 +.field public s:Landroid/widget/TextView;
- 
 +
+ 
  # direct methods
  .method public constructor <init>(Landroid/content/Context;)V
-     .locals 2
 @@ -296,7 +298,7 @@
  
      const/4 v2, -0x2
@@ -41,9 +40,9 @@
  
 -    invoke-virtual {v1, v2}, Landroid/view/View;->setAlpha(F)V
 +    sget v7, Lcom/xj/common/R$drawable;->llauncher_white_bg_btn_rb:I
- 
-+    invoke-virtual {v1, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 +
++    invoke-virtual {v1, v7}, Landroid/widget/ImageView;->setImageResource(I)V
+ 
      :cond_7
 -    iget-object v1, p0, Lcom/xj/common/view/tab/CommonTextTabLayout;->j:Landroid/widget/ImageView;
 +    iget-object v1, p0, Lcom/xj/common/view/tab/CommonTextTabLayout;->k:Landroid/widget/ImageView;
@@ -55,13 +54,13 @@
 +
 +    :cond_8
 +    iget-object v1, p0, Lcom/xj/common/view/tab/CommonTextTabLayout;->k:Landroid/widget/ImageView;
-+
+ 
 +    if-eqz v1, :cond_9
 +
 +    const/16 v7, 0x8
 +
 +    invoke-virtual {v1, v7}, Landroid/view/View;->setVisibility(I)V
- 
++
 +    :cond_9
      iget-object v1, p0, Lcom/xj/common/view/tab/CommonTextTabLayout;->l:Lcom/xj/common/view/SimpleFocusRecyclerView;
  

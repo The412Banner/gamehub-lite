@@ -1,17 +1,16 @@
 --- a/smali_classes5/com/xj/landscape/launcher/ui/guide/GuideCreateAvatarActivity.smali
 +++ b/smali_classes5/com/xj/landscape/launcher/ui/guide/GuideCreateAvatarActivity.smali
-@@ -320,49 +320,14 @@
- # virtual methods
+@@ -321,48 +321,13 @@
  .method public final A1(Ljava/lang/String;)V
      .locals 7
--
--    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
--
--    move-result v0
  
--    if-nez v0, :cond_0
+-    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 +    sget-object p1, Lcom/xj/landscape/launcher/router/RouterUtils;->a:Lcom/xj/landscape/launcher/router/RouterUtils;
  
+-    move-result v0
+-
+-    if-nez v0, :cond_0
+-
 -    sget-object p1, Lcom/xj/common/utils/toast/Toaster;->a:Lcom/xj/common/utils/toast/Toaster;
 -
 -    sget v0, Lcom/xj/language/R$string;->llauncher_profile_no_avatar_hint:I

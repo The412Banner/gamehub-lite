@@ -1,6 +1,6 @@
 --- a/smali_classes5/com/xj/landscape/launcher/utils/HttpsUtils.smali
 +++ b/smali_classes5/com/xj/landscape/launcher/utils/HttpsUtils.smali
-@@ -20,78 +20,80 @@
+@@ -20,77 +20,79 @@
  
  # direct methods
  .method static constructor <clinit>()V
@@ -110,9 +110,8 @@
  
 -    filled-new-array/range {v0 .. v33}, [Ljava/lang/String;
 +    const-string v32, "sz.preview.qpic.cn"
- 
-+    filled-new-array/range {v0 .. v34}, [Ljava/lang/String;
 +
++    filled-new-array/range {v0 .. v34}, [Ljava/lang/String;
+ 
      move-result-object v0
  
-     sput-object v0, Lcom/xj/landscape/launcher/utils/HttpsUtils;->a:[Ljava/lang/String;

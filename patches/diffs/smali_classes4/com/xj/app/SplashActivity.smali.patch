@@ -18,11 +18,10 @@
  
      const/4 p1, 0x0
  
-@@ -477,12 +477,90 @@
-     const-string v1, "uminit"
+@@ -478,11 +478,89 @@
  
      invoke-virtual {p1, v1, v0}, Lcom/blankj/utilcode/util/SPUtils;->m(Ljava/lang/String;I)V
-+
+ 
 +    const-string v1, "intro_video_prefs"
 +
 +    const/4 v2, 0x0
@@ -36,7 +35,7 @@
 +    invoke-interface {v1, v3, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 +
 +    move-result v1
- 
++
 +    if-eqz v1, :cond_1
 +
      invoke-virtual {p0}, Lcom/xj/app/SplashActivity;->j1()V
@@ -109,15 +108,15 @@
      sget-object p0, Lcom/xj/common/CommonApp;->b:Lcom/xj/common/CommonApp$Companion;
  
      invoke-virtual {p0}, Lcom/xj/common/CommonApp$Companion;->a()V
-@@ -638,6 +716,8 @@
-     move-result v0
+@@ -639,6 +717,8 @@
  
      const/4 v1, 0x1
-+
-+    const/4 v0, 0x1
  
++    const/4 v0, 0x1
++
      if-eq v0, v1, :cond_0
  
+     sget-object v7, Lcom/xj/common/view/dialog/CommDialogFragment;->v:Lcom/xj/common/view/dialog/CommDialogFragment$Companion;
 @@ -845,3 +925,58 @@
  
      return-void

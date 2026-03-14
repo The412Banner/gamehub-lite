@@ -1,11 +1,11 @@
 --- a/smali_classes4/com/xj/common/utils/PermissionUtils.smali
 +++ b/smali_classes4/com/xj/common/utils/PermissionUtils.smali
-@@ -38,6 +38,8 @@
- 
+@@ -39,6 +39,8 @@
  .method public static synthetic J(Lcom/xj/common/utils/PermissionUtils;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)V
      .locals 0
-+
-+    return-void
  
++    return-void
++
      and-int/lit8 p6, p5, 0x2
  
+     if-eqz p6, :cond_0

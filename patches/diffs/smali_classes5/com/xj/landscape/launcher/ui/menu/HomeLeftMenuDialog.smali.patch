@@ -18,7 +18,7 @@
      invoke-virtual {v3}, Lcom/xj/common/config/AppConfig$Companion;->l()Z
  
      move-result v4
--
+ 
 -    if-nez v4, :cond_2
 -
 -    new-instance v4, Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog$MenuItem;
@@ -32,7 +32,7 @@
 -    move-result-object v15
 -
 -    invoke-static {v15, v11}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
- 
+-
 -    const/16 v17, 0x8
 -
 -    const/16 v18, 0x0

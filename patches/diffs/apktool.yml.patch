@@ -7,12 +7,13 @@
  usesFramework:
    ids:
    - 1
-@@ -10,16 +10,14 @@
+@@ -9,17 +9,15 @@
+ packageInfo:
    forcedPackageId: 127
  versionInfo:
 -  versionCode: 60
-+  versionCode: 61
 -  versionName: 5.1.0
++  versionCode: 61
 +  versionName: 5.1.4
  doNotCompress:
  - arsc

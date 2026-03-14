@@ -36,17 +36,16 @@
  
 -.field private static t:Ljava/lang/String; = null
 +.field private static t:Ljava/lang/String;
-+
-+.field private static u:Ljava/lang/String;
  
 -.field private static u:Ljava/lang/String; = null
-+.field private static v:Ljava/lang/String;
++.field private static u:Ljava/lang/String;
  
 -.field private static v:Ljava/lang/String; = null
-+.field private static w:Ljava/lang/String;
++.field private static v:Ljava/lang/String;
  
 -.field private static w:Ljava/lang/String; = null
--
++.field private static w:Ljava/lang/String;
+ 
 -.field private static x:Z = false
 +.field private static x:Z
  

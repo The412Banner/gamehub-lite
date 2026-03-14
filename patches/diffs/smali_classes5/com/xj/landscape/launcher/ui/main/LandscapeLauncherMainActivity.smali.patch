@@ -47,17 +47,16 @@
      goto :goto_0
  
      :cond_1
-@@ -3626,25 +3586,7 @@
-     iget-object v0, v0, Lcom/xj/landscape/launcher/databinding/LlauncherActivityNewLauncherMainBinding;->mainTabView:Lcom/xj/landscape/launcher/ui/main/LauncherTabLayout;
+@@ -3627,24 +3587,6 @@
  
      invoke-virtual {v0}, Lcom/xj/common/view/focus/focus/view/FocusTabLayout;->r()V
--
+ 
 -    sget-object v0, Lcom/xj/common/utils/PermissionUtils;->a:Lcom/xj/common/utils/PermissionUtils;
 -
 -    new-instance v4, Lcom/xj/landscape/launcher/ui/main/o;
 -
 -    invoke-direct {v4, v7}, Lcom/xj/landscape/launcher/ui/main/o;-><init>(Lcom/xj/landscape/launcher/ui/main/LandscapeLauncherMainActivity;)V
- 
+-
 -    const/4 v5, 0x6
 -
 -    const/4 v6, 0x0

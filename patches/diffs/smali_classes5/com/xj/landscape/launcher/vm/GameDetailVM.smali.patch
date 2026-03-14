@@ -1,11 +1,48 @@
 --- a/smali_classes5/com/xj/landscape/launcher/vm/GameDetailVM.smali
 +++ b/smali_classes5/com/xj/landscape/launcher/vm/GameDetailVM.smali
-@@ -1478,17 +1478,11 @@
-
+@@ -1274,7 +1274,7 @@
+ 
+     move-result-object p2
+ 
+-    if-eqz p2, :cond_10
++    if-eqz p2, :cond_f
+ 
+     invoke-interface {p2}, Ljava/lang/CharSequence;->length()I
+ 
+@@ -1282,7 +1282,7 @@
+ 
+     if-nez p2, :cond_4
+ 
+-    goto/16 :goto_7
++    goto/16 :goto_8
+ 
+     :cond_4
+     :try_start_0
+@@ -1419,7 +1419,7 @@
+ 
+     move-result v4
+ 
+-    if-eqz v4, :cond_f
++    if-eqz v4, :cond_e
+ 
+     invoke-virtual {p1}, Lcom/xj/common/data/gameinfo/GameDetailEntity;->getGame_startup_params()Ljava/util/List;
+ 
+@@ -1464,7 +1464,7 @@
+     :goto_5
+     check-cast v5, Lcom/xj/common/data/gameinfo/GameStartupParams;
+ 
+-    if-eqz v5, :cond_f
++    if-eqz v5, :cond_e
+ 
+     invoke-virtual {p1, v5}, Lcom/xj/common/data/gameinfo/GameDetailEntity;->setCurStartupParams(Lcom/xj/common/data/gameinfo/GameStartupParams;)V
+ 
+@@ -1478,19 +1478,8 @@
+ 
      invoke-virtual {p1, v4}, Lcom/xj/common/data/gameinfo/GameDetailEntity;->setCurrentOpenType(I)V
-
+ 
 -    sget-object v4, Lcom/xj/game/entity/UserSteamGameState;->Downloaded:Lcom/xj/game/entity/UserSteamGameState;
--
++    goto :goto_7
+ 
 -    if-eq p2, v4, :cond_d
 -
 -    sget-object v4, Lcom/xj/game/entity/UserSteamGameState;->ImportedByTool:Lcom/xj/game/entity/UserSteamGameState;
@@ -15,11 +52,38 @@
 -    sget-object v4, Lcom/xj/game/entity/UserSteamGameState;->ImportedByUser:Lcom/xj/game/entity/UserSteamGameState;
 -
 -    if-ne p2, v4, :cond_f
-+    # GHL: Patched to skip auto-deletion of game after returning from game session
-+    # This prevents the game from being deleted when it crashes with full Steam client
-+    # Original code checked for Downloaded/ImportedByTool/ImportedByUser states and called
-+    # uninstallPcDemoGame, which incorrectly deleted games after a crash, this is an attempt to fix that
-+    goto :cond_f
-
-     :cond_d
+-
+-    :cond_d
      invoke-virtual {p1}, Lcom/xj/common/data/gameinfo/GameDetailEntity;->getId()I
+ 
+     move-result p1
+@@ -1509,23 +1498,24 @@
+ 
+     move-result-object p1
+ 
+-    if-ne p1, v1, :cond_e
++    if-ne p1, v1, :cond_d
+ 
+     return-object v1
+ 
+-    :cond_e
++    :cond_d
+     :goto_6
+     sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+     return-object p1
+ 
+-    :cond_f
++    :cond_e
++    :goto_7
+     sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+     return-object p1
+ 
+-    :cond_10
+-    :goto_7
++    :cond_f
++    :goto_8
+     sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+     return-object p1

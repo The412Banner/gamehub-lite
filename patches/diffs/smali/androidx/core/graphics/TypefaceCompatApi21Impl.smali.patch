@@ -12,11 +12,10 @@
  
 -.field public static d:Ljava/lang/reflect/Method; = null
 +.field public static d:Ljava/lang/reflect/Method;
-+
-+.field public static e:Ljava/lang/reflect/Method;
  
 -.field public static e:Ljava/lang/reflect/Method; = null
--
++.field public static e:Ljava/lang/reflect/Method;
+ 
 -.field public static f:Z = false
 +.field public static f:Z
  

@@ -108,8 +108,7 @@
      new-instance v0, Ljava/util/ArrayList;
  
 -    const/16 v1, 0x8
-+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
- 
+-
 -    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 -
 -    new-instance v1, Landroidx/databinding/library/baseAdapters/DataBinderMapperImpl;
@@ -159,7 +158,8 @@
 -    invoke-direct {v1}, Lcom/xj/winemu/DataBinderMapperImpl;-><init>()V
 -
 -    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
--
++    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
      return-object v0
  .end method
  
@@ -357,8 +357,7 @@
 -    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 -
 -    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-+    .locals 0
- 
+-
 -    move-result-object p2
 -
 -    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -589,7 +588,8 @@
 -    invoke-direct {p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 -
 -    throw p1
--
++    .locals 0
+ 
 -    :cond_c
 -    :goto_0
      const/4 p1, 0x0

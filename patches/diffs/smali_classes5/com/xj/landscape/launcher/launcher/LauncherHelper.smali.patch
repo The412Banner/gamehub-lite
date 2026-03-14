@@ -112,14 +112,11 @@
 -    .locals 3
 -
 -    new-instance v0, Lkotlinx/coroutines/CancellableContinuationImpl;
-+    .locals 1
- 
+-
 -    invoke-static {p2}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->d(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-+    const/4 p1, 0x1
- 
+-
 -    move-result-object v1
-+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
- 
+-
 -    const/4 v2, 0x1
 -
 -    invoke-direct {v0, v1, v2}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
@@ -149,11 +146,14 @@
 -    invoke-virtual {v1, p1, v2}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 -
 -    invoke-virtual {v0}, Lkotlinx/coroutines/CancellableContinuationImpl;->y()Ljava/lang/Object;
--
++    .locals 1
+ 
 -    move-result-object p1
--
++    const/4 p1, 0x1
+ 
 -    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
--
++    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
      move-result-object v0
  
 -    if-ne p1, v0, :cond_0

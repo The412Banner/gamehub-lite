@@ -18,11 +18,10 @@
  
      const/4 v2, 0x2
  
-@@ -1512,69 +1512,15 @@
-     invoke-virtual {v0, p0}, Lcom/xj/bussiness/devicemanagement/utils/DeviceManager;->i(Landroid/content/Context;)Z
+@@ -1513,68 +1513,14 @@
  
      move-result v0
--
+ 
 -    if-nez v0, :cond_2
 -
 -    invoke-virtual {p0}, Lcom/xj/landscape/launcher/ui/device/ScanDeviceActivity;->e2()V
@@ -75,7 +74,7 @@
 -    invoke-virtual {p1, v0, v1}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 -
 -    goto :goto_0
- 
+-
 -    :cond_2
      invoke-virtual {p0, p1}, Lcom/xj/landscape/launcher/ui/device/ScanDeviceActivity;->V1(Z)V
  

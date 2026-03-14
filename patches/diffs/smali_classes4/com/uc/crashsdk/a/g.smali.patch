@@ -14,16 +14,15 @@
 +.field private static d:Ljava/lang/String;
  
 -.field private static e:Ljava/lang/String; = null
--
--.field private static f:Ljava/lang/String; = null
 +.field private static e:Ljava/lang/String;
  
--.field private static g:Ljava/lang/String; = null
+-.field private static f:Ljava/lang/String; = null
 +.field private static f:Ljava/lang/String;
  
--.field private static h:Z = false
+-.field private static g:Ljava/lang/String; = null
 +.field private static g:Ljava/lang/String;
-+
+ 
+-.field private static h:Z = false
 +.field private static h:Z
  
  .field private static final i:Ljava/lang/Object;

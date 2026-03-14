@@ -1,14 +1,13 @@
 --- a/smali_classes2/cn/jpush/android/data/JPushConfig.smali
 +++ b/smali_classes2/cn/jpush/android/data/JPushConfig.smali
-@@ -1,33 +1,8 @@
+@@ -1,31 +1,6 @@
  .class public Lcn/jpush/android/data/JPushConfig;
  .super Ljava/lang/Object;
 -.source "SourceFile"
-+.source "JPushStub"
- 
+-
 -# interfaces
 -.implements Ljava/io/Serializable;
- 
+-
 -
 -# static fields
 -.field private static final serialVersionUID:J = -0x2b8358b97cdff900L
@@ -30,11 +29,10 @@
 -.field private g:Ljava/lang/String;
 -
 -.field private h:Ljava/lang/String;
--
--
++.source "JPushStub"
+ 
+ 
  # direct methods
- .method public constructor <init>()V
-     .locals 0
 @@ -39,130 +14,8 @@
  
  

@@ -1,6 +1,6 @@
 --- a/smali_classes2/cn/jpush/android/api/JPushInterface.smali
 +++ b/smali_classes2/cn/jpush/android/api/JPushInterface.smali
-@@ -1,2785 +1,23 @@
+@@ -1,1752 +1,16 @@
  .class public Lcn/jpush/android/api/JPushInterface;
  .super Ljava/lang/Object;
 -.source "SourceFile"
@@ -107,9 +107,10 @@
 -.field public static final PUSH_MESSAGE_PERMISSION_POSTFIX:Ljava/lang/String; = ".permission.JPUSH_MESSAGE"
 -
 -.field private static final a:Ljava/lang/Integer;
--
--
--# direct methods
++.source "JPushStub"
+ 
+ 
+ # direct methods
 -.method static constructor <clinit>()V
 -    .locals 2
 -
@@ -888,7 +889,7 @@
 -    return-void
 -.end method
 -
--.method public static init(Landroid/content/Context;Lcn/jpush/android/data/JPushConfig;)V
+ .method public static init(Landroid/content/Context;Lcn/jpush/android/data/JPushConfig;)V
 -    .locals 2
 -
 -    .line 2
@@ -997,8 +998,8 @@
 -.end method
 -
 -.method public static initCrashHandler(Landroid/content/Context;)V
--    .locals 0
--
+     .locals 0
+ 
 -    invoke-static {p0}, Lcn/jpush/android/api/JPushInterface;->checkContext(Landroid/content/Context;)V
 -
 -    invoke-static {p0}, Lcn/jiguang/api/JCoreManager;->initCrashHandler(Landroid/content/Context;)V
@@ -1603,10 +1604,10 @@
 -
 -    invoke-static {p1, p0}, Lcn/jpush/android/helper/Logger;->kd(Ljava/lang/String;Ljava/lang/String;)V
 -
--    return-void
--.end method
--
--.method public static setAlias(Landroid/content/Context;Ljava/lang/String;Lcn/jpush/android/api/TagAliasCallback;)V
+     return-void
+ .end method
+ 
+ .method public static setAlias(Landroid/content/Context;Ljava/lang/String;Lcn/jpush/android/api/TagAliasCallback;)V
 -    .locals 1
 -    .annotation runtime Ljava/lang/Deprecated;
 -    .end annotation
@@ -1750,14 +1751,13 @@
 -.end method
 -
 -.method public static setDaemonAction(Ljava/lang/String;)V
--    .locals 0
--
--    return-void
--.end method
--
--.method public static setDebugMode(Z)V
--    .locals 0
--
+     .locals 0
+ 
+     return-void
+@@ -1755,1031 +19,5 @@
+ .method public static setDebugMode(Z)V
+     .locals 0
+ 
 -    invoke-static {p0}, Lcn/jiguang/api/JCoreManager;->setDebugMode(Z)V
 -
 -    return-void
@@ -2783,24 +2783,6 @@
 -    const/4 v0, 0x0
 -
 -    invoke-static {p1, p2, p3, v0}, Lcn/jpush/android/api/JPushInterface;->setAliasAndTags(Landroid/content/Context;Ljava/lang/String;Ljava/util/Set;Lcn/jpush/android/api/TagAliasCallback;)V
-+.source "JPushStub"
-+
-+
-+# direct methods
-+.method public static init(Landroid/content/Context;Lcn/jpush/android/data/JPushConfig;)V
-+    .locals 0
-+
-+    return-void
-+.end method
-+
-+.method public static setAlias(Landroid/content/Context;Ljava/lang/String;Lcn/jpush/android/api/TagAliasCallback;)V
-+    .locals 0
-+
-+    return-void
-+.end method
-+
-+.method public static setDebugMode(Z)V
-+    .locals 0
- 
+-
      return-void
  .end method

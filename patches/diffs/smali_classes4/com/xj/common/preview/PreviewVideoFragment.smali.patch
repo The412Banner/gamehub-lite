@@ -1,19 +1,18 @@
 --- a/smali_classes4/com/xj/common/preview/PreviewVideoFragment.smali
 +++ b/smali_classes4/com/xj/common/preview/PreviewVideoFragment.smali
-@@ -1243,39 +1243,22 @@
-     move-result-object p1
+@@ -1244,38 +1244,21 @@
  
      const/4 v0, 0x0
--
+ 
 -    if-eqz p1, :cond_2
 -
 -    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
- 
+-
 -    const/16 v2, 0x21
 +    if-eqz p1, :cond_1
  
      const-string v3, "preview_data"
--
+ 
 -    if-lt v1, v2, :cond_0
 -
 -    const-class v0, Lcom/xj/common/preview/PreviewMediaEntity;
@@ -25,7 +24,7 @@
 -    check-cast p1, Landroid/os/Parcelable;
 -
 -    goto :goto_1
- 
+-
 -    :cond_0
      invoke-virtual {p1, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
  

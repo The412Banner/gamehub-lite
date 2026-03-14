@@ -8,13 +8,12 @@
 +.field public static e:Ljava/lang/reflect/Field;
  
 -.field public static f:Z = false
--
--.field public static g:Ljava/lang/reflect/Constructor; = null
 +.field public static f:Z
  
--.field public static h:Z = false
+-.field public static g:Ljava/lang/reflect/Constructor; = null
 +.field public static g:Ljava/lang/reflect/Constructor;
-+
+ 
+-.field public static h:Z = false
 +.field public static h:Z
  
  

@@ -9,11 +9,10 @@
  
      const-string v1, "isDisplayGameBtn"
  
-@@ -783,40 +783,22 @@
-     move-result v1
+@@ -784,39 +784,21 @@
  
      iput-boolean v1, p0, Lcom/xj/mapping/play/dialog/HidModelTipDialog;->j:Z
--
+ 
 -    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 -
 -    const/16 v2, 0x21
@@ -29,7 +28,7 @@
 -    move-result-object p1
 -
 -    check-cast p1, Lcom/xj/common/entity/StartInfoModel;
- 
+-
 -    goto :goto_0
 +    const-string v3, "preview_data"
  

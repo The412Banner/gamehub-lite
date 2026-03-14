@@ -1,9 +1,7 @@
 Manifest-Version: 1.0
-Built-By: Signflinger
-Created-By: Android Gradle 8.0.2
 
 Name: AndroidManifest.xml
-SHA-256-Digest: mWKoOvp7HJJdFeXv2PLslZdD7siFBM5JSfno4veMejA=
+SHA-256-Digest: XvhbDjxH+dLd5IFUNJXe4lPiVsV43Qk/erTHmUrRApc=
 
 Name: META-INF/INDEX.LIST
 SHA-256-Digest: izuB7laRtWez3pnuur05VRKXG5FFXMQ3ePVFvFJcw2U=
@@ -677,10 +675,10 @@ Name: classes3.dex
 SHA-256-Digest: A/7rUNb+0jjRmEgRgsHtV+Piu4uNUaKIrB/MhgaRdCc=
 
 Name: classes4.dex
-SHA-256-Digest: UrM6dXYfrIjW7wmDtPWFxV2ipO/7lTV/4Y307P2sIEY=
+SHA-256-Digest: gzEtRxFwelV436OJC1mBdv1Isz0vyNsAd1rKZKYRQj8=
 
 Name: classes5.dex
-SHA-256-Digest: yhw/KCzsF3xtrNaqvEl7Hyyx+BH032TV5DFhCHv3aAM=
+SHA-256-Digest: LiMcLx4iwTLVqdz5/s/CP0Cyx0EST+qPax/nY2KvD60=
 
 Name: classes6.dex
 SHA-256-Digest: 3kAqfmHlz/6MXIMP1yY/F8J5CwnE+7GraAHIc9aj+R4=
@@ -1934,6 +1932,9 @@ SHA-256-Digest: v3acYOwQHXZj5lNitfwi0JcQ1aLp1Rg61fpGFHR8z+Q=
 
 Name: res/color/mtrl_text_btn_text_color_selector.xml
 SHA-256-Digest: b8POWx9lrva7Ju6/yn123AkThpQeXCIQ8VQFYhhMIxQ=
+
+Name: res/color/rts_checkbox_tint.xml
+SHA-256-Digest: pu8KOGcBISeGQ4PnsSDGmRrdPYLTqX+BuomTm+yukqM=
 
 Name: res/color/spinner_item_selected_color.xml
 SHA-256-Digest: U1tSjis/1b+QSvtWFsonDP+kl0ioGX90jK/5mpfaN4s=
@@ -13375,6 +13376,18 @@ SHA-256-Digest: haCLVhpkdfyUNQuBv0s/LfqN66cEKy+tMqx4JiF1D/I=
 Name: res/drawable/round_button.xml
 SHA-256-Digest: LekaaDtMZQiju/V3BkiJqGn6ISX0dgd3dAX0IxGfDco=
 
+Name: res/drawable/rts_checkbox_button.xml
+SHA-256-Digest: dgFiIwGe0LB+yQL6hnZYOwMyspGwO+CuR200NN4k+ns=
+
+Name: res/drawable/rts_checkbox_checked.xml
+SHA-256-Digest: lQWnbeakZ3NmngDo24fsm6nvlIGNsyYzS/2DD5YsWWs=
+
+Name: res/drawable/rts_checkbox_unchecked.xml
+SHA-256-Digest: K97rQ20gQJCsD9f7RSrRpVvQWhLy0O6qo2qZ3SQ4qqo=
+
+Name: res/drawable/rts_dialog_background.xml
+SHA-256-Digest: SeUgnoPeXtUknWebIpLb9q4D0Su5U0uao8WNdFr2GpA=
+
 Name: res/drawable/scrollbar_thumb.xml
 SHA-256-Digest: oVUjYp3WL1zBZogJ2GCob3S9kDoVUPd4Yyke1zs1fRE=
 
@@ -16465,6 +16478,15 @@ SHA-256-Digest: 5GsFpKsZZ2MjmZBhEthyKR/w7Je2BIpqYShBhZBN5zk=
 Name: res/layout/psstream_popup_options_item.xml
 SHA-256-Digest: +TRB3jcnX9pJt70GSLdKzoxiU6CuknV1aH/hOtvFvzk=
 
+Name: res/layout/rts_action_picker_dialog.xml
+SHA-256-Digest: XuSN0/JLIlu31MIxKfapfIddrqpwyZ31IwvkDFfub4U=
+
+Name: res/layout/rts_action_picker_item.xml
+SHA-256-Digest: nkrNGAhxP5XxPkZvvboMDnUc7TzOlT5wk6WdzP3I7HU=
+
+Name: res/layout/rts_gesture_config_dialog.xml
+SHA-256-Digest: GC44UC+DDJEIosunBinNkRFs9KJ32L+pKczlyheaGvM=
+
 Name: res/layout/seekbarrelativelayout.xml
 SHA-256-Digest: o+iI2npJUKVowFdn7IuGNJ6Kkc/90fxn1KThQVqurmM=
 
@@ -16850,7 +16872,7 @@ Name: res/layout/winemu_sidebar_click_item.xml
 SHA-256-Digest: 9JhZ8DcD4ibKvxlDVoJFc28yYX2Wg0sUzyj63hwV2fU=
 
 Name: res/layout/winemu_sidebar_controls_fragment.xml
-SHA-256-Digest: H2dRWi1zUF160fdr8UnbTootW6YSb3c7fWDEm+nB1Ek=
+SHA-256-Digest: 4wms4YxkzNNV8YC6xdC1Pr61kL7QlWJtkFMxvwr4vOQ=
 
 Name: res/layout/winemu_sidebar_controls_mapping_item.xml
 SHA-256-Digest: LvKNnA9ii0jE9XHkujlUT/spFKS/y9KCkgfyt6KoUyo=
@@ -17243,5 +17265,5 @@ Name: res/xml/util_code_provider_paths.xml
 SHA-256-Digest: 8i38oO5xU04c0nIlC2CaPHPMcf+BkHJ5JuCAp856B/E=
 
 Name: resources.arsc
-SHA-256-Digest: +MDRIytjq/H2zq7vuIxnoTBZGKfR701JqcUtClomXIY=
+SHA-256-Digest: J5y/xsgdEQ2Ld7z1etKcDfdz3T6d6OsTApqPRS1baf8=
 

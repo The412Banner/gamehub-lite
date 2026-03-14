@@ -409,15 +409,11 @@
 -        <activity android:configChanges="locale|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|density|layoutDirection|fontScale" android:exported="false" android:name="com.alipay.sdk.app.H5OpenAuthActivity" android:screenOrientation="behind" android:windowSoftInputMode="stateHidden|adjustResize"/>
 -        <activity android:configChanges="locale|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|density|layoutDirection|fontScale" android:exported="false" android:name="com.alipay.sdk.app.APayEntranceActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 -        <activity android:exported="true" android:name="cn.jpush.android.ui.PopWinActivity" android:theme="@style/JPushDialogStyle">
-+        <activity android:label="@string/adb_pairing" android:name="com.xiaoji.wifi.adb.AdbPairingTutorialActivity"/>
-+        <activity android:excludeFromRecents="true" android:exported="true" android:name="bin.mt.file.content.MTDataFilesWakeUpActivity" android:noHistory="true" android:taskAffinity="com.xiaoji.egggame.MTDataFilesWakeUp"/>
-+        <provider android:authorities="gamehub.lite.MTDataFilesProvider" android:exported="true" android:grantUriPermissions="true" android:name="bin.mt.file.content.MTDataFilesProvider" android:permission="android.permission.MANAGE_DOCUMENTS">
-             <intent-filter>
+-            <intent-filter>
 -                <category android:name="android.intent.category.DEFAULT"/>
 -                <action android:name="cn.jpush.android.ui.PopWinActivity"/>
 -                <category android:name="com.xiaoji.egggame"/>
-+                <action android:name="android.content.action.DOCUMENTS_PROVIDER"/>
-             </intent-filter>
+-            </intent-filter>
 -        </activity>
 -        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:name="cn.jpush.android.ui.PushActivity" android:theme="@android:style/Theme.NoTitleBar">
 -            <intent-filter>
@@ -444,11 +440,15 @@
 -        <receiver android:exported="false" android:name="cn.jpush.android.service.SchedulerReceiver"/>
 -        <provider android:authorities="com.xiaoji.egggame.DataProvider" android:exported="false" android:name="cn.jpush.android.service.DataProvider" android:process=":pushcore"/>
 -        <activity android:exported="true" android:name="cn.jpush.android.service.JNotifyActivity" android:taskAffinity="" android:theme="@style/JPushTheme">
--            <intent-filter>
++        <activity android:label="@string/adb_pairing" android:name="com.xiaoji.wifi.adb.AdbPairingTutorialActivity"/>
++        <activity android:excludeFromRecents="true" android:exported="true" android:name="bin.mt.file.content.MTDataFilesWakeUpActivity" android:noHistory="true" android:taskAffinity="com.xiaoji.egggame.MTDataFilesWakeUp"/>
++        <provider android:authorities="gamehub.lite.MTDataFilesProvider" android:exported="true" android:grantUriPermissions="true" android:name="bin.mt.file.content.MTDataFilesProvider" android:permission="android.permission.MANAGE_DOCUMENTS">
+             <intent-filter>
 -                <action android:name="cn.jpush.android.intent.JNotifyActivity"/>
 -                <category android:name="android.intent.category.DEFAULT"/>
 -                <category android:name="com.xiaoji.egggame"/>
--            </intent-filter>
++                <action android:name="android.content.action.DOCUMENTS_PROVIDER"/>
+             </intent-filter>
 -        </activity>
 -        <activity android:exported="true" android:name="cn.android.service.JTransitActivity" android:taskAffinity="" android:theme="@style/JPushTheme">
 -            <intent-filter>

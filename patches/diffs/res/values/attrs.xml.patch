@@ -351,18 +351,17 @@
          <flag name="bottom" value="0x00000050" />
 -        <flag name="left" value="0x00000003" />
 -        <flag name="right" value="0x00000005" />
--        <flag name="center_vertical" value="0x00000010" />
--        <flag name="fill_vertical" value="0x00000070" />
--        <flag name="center_horizontal" value="0x00000001" />
-         <flag name="center" value="0x00000011" />
--        <flag name="start" value="0x00800003" />
++        <flag name="center" value="0x00000011" />
 +        <flag name="center_horizontal" value="0x00000001" />
-+        <flag name="center_vertical" value="0x00000010" />
-         <flag name="end" value="0x00800005" />
-+        <flag name="fill_vertical" value="0x00000070" />
+         <flag name="center_vertical" value="0x00000010" />
++        <flag name="end" value="0x00800005" />
+         <flag name="fill_vertical" value="0x00000070" />
+-        <flag name="center_horizontal" value="0x00000001" />
+-        <flag name="center" value="0x00000011" />
 +        <flag name="left" value="0x00000003" />
 +        <flag name="right" value="0x00000005" />
-+        <flag name="start" value="0x00800003" />
+         <flag name="start" value="0x00800003" />
+-        <flag name="end" value="0x00800005" />
 +        <flag name="top" value="0x00000030" />
      </attr>
      <attr name="collapsedTitleTextAppearance" format="reference" />

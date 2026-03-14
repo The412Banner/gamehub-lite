@@ -18,7 +18,7 @@
      invoke-virtual {v3}, Lcom/xj/common/config/AppConfig$Companion;->l()Z
  
      move-result v4
--
+ 
 -    if-nez v4, :cond_2
 -
 -    new-instance v4, Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog$MenuItem;
@@ -32,7 +32,7 @@
 -    move-result-object v15
 -
 -    invoke-static {v15, v11}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
- 
+-
 -    const/16 v17, 0x8
 -
 -    const/16 v18, 0x0
@@ -94,3 +94,14 @@
      new-instance v3, Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog$MenuItem;
  
      sget v14, Lcom/xj/landscape/launcher/R$drawable;->menu_setting_normal:I
+@@ -1583,6 +1526,10 @@
+ 
+     iget-object v4, v0, Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog;->m:Ljava/util/List;
+ 
++    invoke-static {v4}, Lapp/revanced/extension/gamehub/ComponentManagerHelper;->addComponentsMenuItem(Ljava/util/List;)V
++
++    iget-object v4, v0, Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog;->m:Ljava/util/List;
++
+     invoke-static {v3, v4}, Lcom/xj/common/view/adapter/MultiViewHolderAdapterKt;->f(Landroidx/recyclerview/widget/RecyclerView$Adapter;Ljava/util/List;)V
+ 
+     :cond_1

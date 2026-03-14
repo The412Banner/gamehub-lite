@@ -355,7 +355,7 @@
              <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/util_code_provider_paths"/>
          </provider>
          <service android:exported="false" android:name="com.blankj.utilcode.util.MessengerUtils$ServerService">
-@@ -408,104 +242,22 @@
+@@ -408,104 +242,23 @@
                  <action android:name="com.xiaoji.egggame.messenger"/>
              </intent-filter>
          </service>
@@ -464,5 +464,6 @@
 -        <activity android:label="@string/adb_pairing" android:name="com.xiaoji.wifi.adb.AdbPairingTutorialActivity"/>
 -        <service android:enabled="true" android:exported="false" android:foregroundServiceType="connectedDevice" android:name="com.xiaoji.wifi.adb.AdbPairingService"/>
 +        </provider>
++        <activity android:exported="false" android:label="Components" android:name="app.revanced.extension.gamehub.ComponentManagerActivity" android:screenOrientation="sensorLandscape"/>
      </application>
  </manifest>

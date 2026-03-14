@@ -867,3 +867,15 @@
      invoke-virtual {v3}, Lcom/xj/winemu/utils/WineInGameSettings;->e()Z
  
      move-result v0
+@@ -5127,7 +5339,11 @@
+ .method public onDestroy()V
+     .locals 1
+ 
+     invoke-virtual {p0}, Lcom/xj/winemu/WineActivity;->x2()V
+ 
++    const/4 v0, 0x0
++
++    sput-object v0, Lcom/xj/winemu/WineActivity;->t1:Lcom/xj/winemu/WineActivity;
++
+     :try_start_0
+     iget-object v0, p0, Lcom/xj/winemu/WineActivity;->h:Lcom/winemu/openapi/WinUIBridge;

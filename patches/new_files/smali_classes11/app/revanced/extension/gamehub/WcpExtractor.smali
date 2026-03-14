@@ -658,7 +658,7 @@
 .end method
 
 .method private static extractZip(Ljava/io/InputStream;Ljava/io/File;)V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -687,71 +687,97 @@
     :goto_0
     invoke-virtual {v2}, Ljava/util/zip/ZipInputStream;->getNextEntry()Ljava/util/zip/ZipEntry;
 
-    move-result-object p0
+    move-result-object v3
 
-    if-eqz p0, :cond_1
+    if-eqz v3, :cond_end
 
-    invoke-virtual {p0}, Ljava/util/zip/ZipEntry;->isDirectory()Z
+    # name = entry.getName()
+    invoke-virtual {v3}, Ljava/util/zip/ZipEntry;->getName()Ljava/lang/String;
 
-    move-result v3
+    move-result-object v4
 
-    if-eqz v3, :cond_0
+    # path traversal guard: skip entries containing ".."
+    const-string v5, ".."
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_skip
+
+    # if isDirectory -> mkdirs and continue
+    invoke-virtual {v3}, Ljava/util/zip/ZipEntry;->isDirectory()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_file
+
+    # directory: new File(destDir, name).mkdirs()
+    new-instance v5, Ljava/io/File;
+
+    invoke-direct {v5, p1, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    invoke-virtual {v5}, Ljava/io/File;->mkdirs()Z
 
     invoke-virtual {v2}, Ljava/util/zip/ZipInputStream;->closeEntry()V
 
     goto :goto_0
 
-    :cond_0
-    new-instance v3, Ljava/io/File;
+    :cond_skip
+    invoke-virtual {v2}, Ljava/util/zip/ZipInputStream;->closeEntry()V
 
-    invoke-virtual {p0}, Ljava/util/zip/ZipEntry;->getName()Ljava/lang/String;
+    goto :goto_0
 
-    move-result-object p0
+    :cond_file
+    # out = new File(destDir, name)
+    new-instance v5, Ljava/io/File;
 
-    invoke-direct {v3, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, p1, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-virtual {v3}, Ljava/io/File;->getName()Ljava/lang/String;
+    # parent = out.getParentFile(); if non-null, mkdirs
+    invoke-virtual {v5}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
-    move-result-object p0
+    move-result-object v3
 
-    new-instance v3, Ljava/io/File;
+    if-eqz v3, :cond_no_parent
 
-    invoke-direct {v3, p1, p0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-virtual {v3}, Ljava/io/File;->mkdirs()Z
 
-    new-instance p0, Ljava/io/FileOutputStream;
+    :cond_no_parent
+    new-instance v3, Ljava/io/FileOutputStream;
 
-    invoke-direct {p0, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+    invoke-direct {v3, v5}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
     :try_start_0
-    invoke-static {v2, p0, v0, v1}, Lapp/revanced/extension/gamehub/WcpExtractor;->pipe(Ljava/io/InputStream;Ljava/io/OutputStream;[B[J)V
+    invoke-static {v2, v3, v0, v1}, Lapp/revanced/extension/gamehub/WcpExtractor;->pipe(Ljava/io/InputStream;Ljava/io/OutputStream;[B[J)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {p0}, Ljava/io/FileOutputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
 
     invoke-virtual {v2}, Ljava/util/zip/ZipInputStream;->closeEntry()V
 
     goto :goto_0
 
     :catchall_0
-    move-exception p1
+    move-exception v4
 
     :try_start_1
-    invoke-virtual {p0}, Ljava/io/FileOutputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    goto :goto_1
+    goto :goto_throw
 
     :catchall_1
-    move-exception p0
+    move-exception v5
 
-    invoke-virtual {p1, p0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {v4, v5}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_1
-    throw p1
+    :goto_throw
+    throw v4
 
-    :cond_1
+    :cond_end
     invoke-virtual {v2}, Ljava/util/zip/ZipInputStream;->close()V
 
     return-void

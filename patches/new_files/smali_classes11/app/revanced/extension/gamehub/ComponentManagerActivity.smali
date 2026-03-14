@@ -589,10 +589,10 @@
     return-void
 .end method
 
-# zipDir(File src, byte[] buf, ZipOutputStream zos)
-# Locals: v0=files[], v1=len, v2=idx, v3=ZipEntry/n, v4=FileInputStream, v5=temp
-.method private static zipDir(Ljava/io/File;[BLjava/util/zip/ZipOutputStream;)V
-    .locals 6
+# zipDir(File src, String prefix, byte[] buf, ZipOutputStream zos)
+# Locals: v0=files[], v1=len, v2=idx, v3=curFile, v4=entryName, v5=temp, v6=temp
+.method private static zipDir(Ljava/io/File;Ljava/lang/String;[BLjava/util/zip/ZipOutputStream;)V
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -615,72 +615,110 @@
     :goto_loop
     if-ge v2, v1, :cond_end
 
-    aget-object v5, v0, v2
+    aget-object v3, v0, v2
 
-    invoke-virtual {v5}, Ljava/io/File;->isDirectory()Z
+    # Compute entryName = prefix.isEmpty() ? f.getName() : prefix + "/" + f.getName()
+    invoke-virtual {v3}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result v3
+    move-result-object v5
 
-    if-eqz v3, :cond_file
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
-    invoke-static {v5, p1, p2}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->zipDir(Ljava/io/File;[BLjava/util/zip/ZipOutputStream;)V
+    move-result v6
+
+    if-eqz v6, :cond_build_name
+
+    # prefix is empty: entryName = f.getName()
+    move-object v4, v5
+
+    goto :cond_have_name
+
+    :cond_build_name
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v6, "/"
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    :cond_have_name
+    # v4 = entryName
+    invoke-virtual {v3}, Ljava/io/File;->isDirectory()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_file
+
+    # directory: recurse with entryName as new prefix
+    invoke-static {v3, v4, p2, p3}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->zipDir(Ljava/io/File;Ljava/lang/String;[BLjava/util/zip/ZipOutputStream;)V
 
     goto :goto_next
 
     :cond_file
-    new-instance v3, Ljava/util/zip/ZipEntry;
+    new-instance v5, Ljava/util/zip/ZipEntry;
 
-    invoke-virtual {v5}, Ljava/io/File;->getName()Ljava/lang/String;
+    invoke-direct {v5, v4}, Ljava/util/zip/ZipEntry;-><init>(Ljava/lang/String;)V
 
-    move-result-object v4
+    invoke-virtual {p3, v5}, Ljava/util/zip/ZipOutputStream;->putNextEntry(Ljava/util/zip/ZipEntry;)V
 
-    invoke-direct {v3, v4}, Ljava/util/zip/ZipEntry;-><init>(Ljava/lang/String;)V
+    new-instance v5, Ljava/io/FileInputStream;
 
-    invoke-virtual {p2, v3}, Ljava/util/zip/ZipOutputStream;->putNextEntry(Ljava/util/zip/ZipEntry;)V
-
-    new-instance v4, Ljava/io/FileInputStream;
-
-    invoke-direct {v4, v5}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    invoke-direct {v5, v3}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
     :try_start_0
     :goto_read
-    invoke-virtual {v4, p1}, Ljava/io/InputStream;->read([B)I
+    invoke-virtual {v5, p2}, Ljava/io/InputStream;->read([B)I
 
-    move-result v3
+    move-result v6
 
-    if-lez v3, :cond_read_done
+    if-lez v6, :cond_read_done
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p2, p1, v5, v3}, Ljava/io/OutputStream;->write([BII)V
+    invoke-virtual {p3, p2, v4, v6}, Ljava/io/OutputStream;->write([BII)V
 
     goto :goto_read
 
     :cond_read_done
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {p2}, Ljava/util/zip/ZipOutputStream;->closeEntry()V
+    invoke-virtual {p3}, Ljava/util/zip/ZipOutputStream;->closeEntry()V
 
     goto :goto_next
 
     :catchall_0
-    move-exception v3
+    move-exception v4
 
     :try_start_1
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    throw v3
+    throw v4
 
     :catchall_1
-    move-exception v4
+    move-exception v5
 
-    invoke-virtual {v3, v4}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {v4, v5}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    throw v3
+    throw v4
 
     :goto_next
     add-int/lit8 v2, v2, 0x1
@@ -786,7 +824,9 @@
     invoke-direct {v2, v1}, Ljava/util/zip/ZipOutputStream;-><init>(Ljava/io/OutputStream;)V
 
     :try_start_inner
-    invoke-static {p1, v0, v2}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->zipDir(Ljava/io/File;[BLjava/util/zip/ZipOutputStream;)V
+    const-string v3, ""
+
+    invoke-static {p1, v3, v0, v2}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->zipDir(Ljava/io/File;Ljava/lang/String;[BLjava/util/zip/ZipOutputStream;)V
     :try_end_inner
     .catchall {:try_start_inner .. :try_end_inner} :catchall_close_zos
 

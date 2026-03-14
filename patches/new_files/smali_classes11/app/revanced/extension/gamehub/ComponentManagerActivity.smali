@@ -69,37 +69,58 @@
 
     return-void
 
-    .line 184
     :cond_0
-    new-instance v3, Ljava/io/File;
+    # backupDir = getExternalFilesDir(null)
+    const/4 v0, 0x0
 
-    sget-object v0, Landroid/os/Environment;->DIRECTORY_DOWNLOADS:Ljava/lang/String;
-
-    .line 185
-    invoke-static {v0}, Landroid/os/Environment;->getExternalStoragePublicDirectory(Ljava/lang/String;)Ljava/io/File;
+    invoke-virtual {p0, v0}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    if-nez v0, :cond_1
 
-    const-string v4, "BannerHub/"
+    const-string p1, "External storage not available"
 
-    invoke-direct {v1, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const/4 v0, 0x0
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {p0, p1, v0}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
-    move-result-object v1
+    return-void
 
-    invoke-direct {v3, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    :cond_1
+    # bannerHubDir = new File(backupDir, "BannerHub")
+    new-instance v1, Ljava/io/File;
 
-    .line 187
-    invoke-virtual {v3}, Ljava/io/File;->mkdirs()Z
+    const-string v3, "BannerHub"
 
-    .line 189
+    invoke-direct {v1, v0, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
+
+    # zipFile = new File(bannerHubDir, name + ".zip")
+    new-instance v3, Ljava/io/File;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4, p1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string v5, ".zip"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v1, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    # handler
     new-instance v4, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -108,7 +129,7 @@
 
     invoke-direct {v4, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 190
+    # start thread with lambda4(this, src=v2, zipFile=v3, handler=v4, name=p1)
     new-instance v6, Ljava/lang/Thread;
 
     new-instance v0, Lapp/revanced/extension/gamehub/ComponentManagerActivity$$ExternalSyntheticLambda4;
@@ -121,7 +142,6 @@
 
     invoke-direct {v6, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 202
     invoke-virtual {v6}, Ljava/lang/Thread;->start()V
 
     return-void
@@ -220,160 +240,6 @@
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     return-object v0
-.end method
-
-.method private static copyDir(Ljava/io/File;Ljava/io/File;)V
-    .locals 8
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    .line 206
-    invoke-virtual {p1}, Ljava/io/File;->mkdirs()Z
-
-    .line 207
-    invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
-
-    move-result-object p0
-
-    if-nez p0, :cond_0
-
-    goto :goto_5
-
-    :cond_0
-    const/16 v0, 0x2000
-
-    .line 209
-    new-array v0, v0, [B
-
-    .line 210
-    array-length v1, p0
-
-    const/4 v2, 0x0
-
-    move v3, v2
-
-    :goto_0
-    if-ge v3, v1, :cond_3
-
-    aget-object v4, p0, v3
-
-    .line 211
-    invoke-virtual {v4}, Ljava/io/File;->isDirectory()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    .line 212
-    new-instance v5, Ljava/io/File;
-
-    invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-direct {v5, p1, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    invoke-static {v4, v5}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->copyDir(Ljava/io/File;Ljava/io/File;)V
-
-    goto :goto_2
-
-    .line 214
-    :cond_1
-    new-instance v5, Ljava/io/FileInputStream;
-
-    invoke-direct {v5, v4}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-
-    .line 215
-    :try_start_0
-    new-instance v6, Ljava/io/FileOutputStream;
-
-    new-instance v7, Ljava/io/File;
-
-    invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {v7, p1, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    invoke-direct {v6, v7}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
-
-    .line 217
-    :goto_1
-    :try_start_1
-    invoke-virtual {v5, v0}, Ljava/io/InputStream;->read([B)I
-
-    move-result v4
-
-    if-lez v4, :cond_2
-
-    invoke-virtual {v6, v0, v2, v4}, Ljava/io/OutputStream;->write([BII)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_1
-
-    .line 218
-    :cond_2
-    :try_start_2
-    invoke-virtual {v6}, Ljava/io/OutputStream;->close()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
-
-    invoke-virtual {v5}, Ljava/io/InputStream;->close()V
-
-    :goto_2
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception p0
-
-    .line 214
-    :try_start_3
-    invoke-virtual {v6}, Ljava/io/OutputStream;->close()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    goto :goto_3
-
-    :catchall_1
-    move-exception p1
-
-    :try_start_4
-    invoke-virtual {p0, p1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
-
-    :goto_3
-    throw p0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
-
-    :catchall_2
-    move-exception p0
-
-    :try_start_5
-    invoke-virtual {v5}, Ljava/io/InputStream;->close()V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
-
-    goto :goto_4
-
-    :catchall_3
-    move-exception p1
-
-    invoke-virtual {p0, p1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
-
-    :goto_4
-    throw p0
-
-    :cond_3
-    :goto_5
-    return-void
 .end method
 
 .method private getFileName(Landroid/net/Uri;)Ljava/lang/String;
@@ -723,19 +589,126 @@
     return-void
 .end method
 
+# zipDir(File src, byte[] buf, ZipOutputStream zos)
+# Locals: v0=files[], v1=len, v2=idx, v3=ZipEntry/n, v4=FileInputStream, v5=temp
+.method private static zipDir(Ljava/io/File;[BLjava/util/zip/ZipOutputStream;)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    array-length v1, v0
+
+    const/4 v2, 0x0
+
+    :goto_loop
+    if-ge v2, v1, :cond_end
+
+    aget-object v5, v0, v2
+
+    invoke-virtual {v5}, Ljava/io/File;->isDirectory()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_file
+
+    invoke-static {v5, p1, p2}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->zipDir(Ljava/io/File;[BLjava/util/zip/ZipOutputStream;)V
+
+    goto :goto_next
+
+    :cond_file
+    new-instance v3, Ljava/util/zip/ZipEntry;
+
+    invoke-virtual {v5}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/util/zip/ZipEntry;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p2, v3}, Ljava/util/zip/ZipOutputStream;->putNextEntry(Ljava/util/zip/ZipEntry;)V
+
+    new-instance v4, Ljava/io/FileInputStream;
+
+    invoke-direct {v4, v5}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    :try_start_0
+    :goto_read
+    invoke-virtual {v4, p1}, Ljava/io/InputStream;->read([B)I
+
+    move-result v3
+
+    if-lez v3, :cond_read_done
+
+    const/4 v5, 0x0
+
+    invoke-virtual {p2, p1, v5, v3}, Ljava/io/OutputStream;->write([BII)V
+
+    goto :goto_read
+
+    :cond_read_done
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {p2}, Ljava/util/zip/ZipOutputStream;->closeEntry()V
+
+    goto :goto_next
+
+    :catchall_0
+    move-exception v3
+
+    :try_start_1
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    throw v3
+
+    :catchall_1
+    move-exception v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+
+    throw v3
+
+    :goto_next
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_loop
+
+    :cond_end
+    return-void
+.end method
+
 
 # virtual methods
 .method synthetic lambda$backupComponent$5$app-revanced-extension-gamehub-ComponentManagerActivity(Ljava/lang/String;)V
     .locals 2
 
-    .line 194
     new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v1, "Backed up to Downloads/BannerHub/"
+    const-string v1, "Backed up to Android/data/.../files/BannerHub/"
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    const-string v0, ".zip"
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
@@ -749,7 +722,6 @@
 
     move-result-object p0
 
-    .line 195
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
     return-void
@@ -758,7 +730,6 @@
 .method synthetic lambda$backupComponent$6$app-revanced-extension-gamehub-ComponentManagerActivity(Ljava/lang/Exception;)V
     .locals 2
 
-    .line 199
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "Backup failed: "
@@ -783,41 +754,81 @@
 
     move-result-object p0
 
-    .line 200
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
     return-void
 .end method
 
+# Thread body: p0=this, p1=src(File), p2=zipFile(File), p3=handler, p4=name(String)
 .method synthetic lambda$backupComponent$7$app-revanced-extension-gamehub-ComponentManagerActivity(Ljava/io/File;Ljava/io/File;Landroid/os/Handler;Ljava/lang/String;)V
-    .locals 0
+    .locals 5
 
-    .line 192
     :try_start_0
-    invoke-static {p1, p2}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->copyDir(Ljava/io/File;Ljava/io/File;)V
+    invoke-virtual {p2}, Ljava/io/File;->exists()Z
 
-    .line 193
+    move-result v0
+
+    if-eqz v0, :cond_no_delete
+
+    invoke-virtual {p2}, Ljava/io/File;->delete()Z
+
+    :cond_no_delete
+    const/16 v0, 0x2000
+
+    new-array v0, v0, [B
+
+    new-instance v1, Ljava/io/FileOutputStream;
+
+    invoke-direct {v1, p2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+
+    new-instance v2, Ljava/util/zip/ZipOutputStream;
+
+    invoke-direct {v2, v1}, Ljava/util/zip/ZipOutputStream;-><init>(Ljava/io/OutputStream;)V
+
+    :try_start_inner
+    invoke-static {p1, v0, v2}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->zipDir(Ljava/io/File;[BLjava/util/zip/ZipOutputStream;)V
+    :try_end_inner
+    .catchall {:try_start_inner .. :try_end_inner} :catchall_close_zos
+
+    invoke-virtual {v2}, Ljava/util/zip/ZipOutputStream;->close()V
+
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
     new-instance p1, Lapp/revanced/extension/gamehub/ComponentManagerActivity$$ExternalSyntheticLambda2;
 
     invoke-direct {p1, p0, p4}, Lapp/revanced/extension/gamehub/ComponentManagerActivity$$ExternalSyntheticLambda2;-><init>(Lapp/revanced/extension/gamehub/ComponentManagerActivity;Ljava/lang/String;)V
 
     invoke-virtual {p3, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
+
+    :catchall_close_zos
+    move-exception v3
+
+    :try_start_close_zos
+    invoke-virtual {v2}, Ljava/util/zip/ZipOutputStream;->close()V
+    :try_end_close_zos
+    .catchall {:try_start_close_zos .. :try_end_close_zos} :catchall_suppress
+
+    throw v3
+
+    :catchall_suppress
+    move-exception v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+
+    throw v3
 
     :catch_0
     move-exception p1
 
-    .line 197
     const-string p2, "BannerHub"
 
     const-string p4, "Backup failed"
 
     invoke-static {p2, p4, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 198
     new-instance p2, Lapp/revanced/extension/gamehub/ComponentManagerActivity$$ExternalSyntheticLambda3;
 
     invoke-direct {p2, p0, p1}, Lapp/revanced/extension/gamehub/ComponentManagerActivity$$ExternalSyntheticLambda3;-><init>(Lapp/revanced/extension/gamehub/ComponentManagerActivity;Ljava/lang/Exception;)V
@@ -830,7 +841,6 @@
 .method synthetic lambda$onActivityResult$2$app-revanced-extension-gamehub-ComponentManagerActivity()V
     .locals 2
 
-    .line 151
     const-string v0, "Injected successfully"
 
     const/4 v1, 0x0
@@ -841,7 +851,6 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 152
     invoke-direct {p0}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->showComponents()V
 
     return-void
@@ -850,7 +859,6 @@
 .method synthetic lambda$onActivityResult$3$app-revanced-extension-gamehub-ComponentManagerActivity(Ljava/lang/String;)V
     .locals 2
 
-    .line 158
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "Inject failed: "
@@ -879,7 +887,6 @@
 .method synthetic lambda$onActivityResult$4$app-revanced-extension-gamehub-ComponentManagerActivity(Landroid/net/Uri;Ljava/io/File;Ljava/lang/String;Landroid/os/Handler;)V
     .locals 1
 
-    .line 145
     :try_start_0
     invoke-virtual {p0}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -887,14 +894,12 @@
 
     invoke-static {v0, p1, p2}, Lapp/revanced/extension/gamehub/WcpExtractor;->extract(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/io/File;)V
 
-    .line 146
     invoke-direct {p0, p1}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->getFileName(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object p1
 
     if-eqz p1, :cond_0
 
-    .line 148
     iget-object p2, p0, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->injectedPrefs:Landroid/content/SharedPreferences;
 
     invoke-interface {p2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
@@ -907,7 +912,6 @@
 
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 150
     :cond_0
     new-instance p1, Lapp/revanced/extension/gamehub/ComponentManagerActivity$$ExternalSyntheticLambda0;
 
@@ -922,14 +926,12 @@
     :catchall_0
     move-exception p1
 
-    .line 155
     const-string p2, "BannerHub"
 
     const-string p3, "Extraction failed"
 
     invoke-static {p2, p3, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 156
     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object p2
@@ -951,7 +953,6 @@
 
     move-result-object p1
 
-    .line 157
     :goto_0
     new-instance p2, Lapp/revanced/extension/gamehub/ComponentManagerActivity$$ExternalSyntheticLambda1;
 
@@ -965,14 +966,12 @@
 .method synthetic lambda$showComponents$0$app-revanced-extension-gamehub-ComponentManagerActivity(Ljava/util/List;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 0
 
-    .line 86
     invoke-interface {p1, p4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object p1
 
     check-cast p1, Ljava/lang/String;
 
-    .line 87
     const-string p2, "(no components found)"
 
     invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -983,7 +982,6 @@
 
     return-void
 
-    .line 89
     :cond_0
     const-string p2, " [-> "
 
@@ -995,7 +993,6 @@
 
     const/4 p3, 0x0
 
-    .line 90
     invoke-virtual {p1, p3, p2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object p1
@@ -1003,7 +1000,6 @@
     :cond_1
     iput-object p1, p0, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->selectedComponent:Ljava/lang/String;
 
-    .line 91
     invoke-direct {p0}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->showOptions()V
 
     return-void
@@ -1012,7 +1008,6 @@
 .method synthetic lambda$showOptions$1$app-revanced-extension-gamehub-ComponentManagerActivity(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 0
 
-    .line 0
     if-eqz p3, :cond_2
 
     const/4 p1, 0x1
@@ -1025,13 +1020,11 @@
 
     return-void
 
-    .line 118
     :cond_0
     invoke-direct {p0}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->showComponents()V
 
     return-void
 
-    .line 117
     :cond_1
     iget-object p1, p0, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->selectedComponent:Ljava/lang/String;
 
@@ -1039,7 +1032,6 @@
 
     return-void
 
-    .line 116
     :cond_2
     invoke-direct {p0}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->openFilePicker()V
 
@@ -1049,7 +1041,6 @@
 .method protected onActivityResult(IILandroid/content/Intent;)V
     .locals 6
 
-    .line 134
     invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
 
     const/16 v0, 0x3e9
@@ -1062,7 +1053,6 @@
 
     if-eqz p3, :cond_1
 
-    .line 136
     invoke-virtual {p3}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object p1
@@ -1071,13 +1061,11 @@
 
     goto :goto_0
 
-    .line 138
     :cond_0
     invoke-virtual {p3}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v2
 
-    .line 139
     new-instance v3, Ljava/io/File;
 
     iget-object p1, p0, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->componentsDir:Ljava/io/File;
@@ -1086,10 +1074,8 @@
 
     invoke-direct {v3, p1, p2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 140
     iget-object v4, p0, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->selectedComponent:Ljava/lang/String;
 
-    .line 142
     new-instance v5, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -1098,7 +1084,6 @@
 
     invoke-direct {v5, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 143
     new-instance p1, Ljava/lang/Thread;
 
     new-instance v0, Lapp/revanced/extension/gamehub/ComponentManagerActivity$$ExternalSyntheticLambda6;
@@ -1109,7 +1094,6 @@
 
     invoke-direct {p1, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 160
     invoke-virtual {p1}, Ljava/lang/Thread;->start()V
 
     :cond_1
@@ -1118,37 +1102,73 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .locals 3
 
-    .line 58
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 59
-    new-instance p1, Ljava/io/File;
-
+    # componentsDir = new File(getFilesDir(), "usr/home/components")
     invoke-virtual {p0}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->getFilesDir()Ljava/io/File;
 
     move-result-object v0
 
     const-string v1, "usr/home/components"
 
-    invoke-direct {p1, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    new-instance v2, Ljava/io/File;
 
-    iput-object p1, p0, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->componentsDir:Ljava/io/File;
+    invoke-direct {v2, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 60
-    const-string p1, "bh_injected"
+    iput-object v2, p0, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->componentsDir:Ljava/io/File;
 
-    const/4 v0, 0x0
+    # injectedPrefs = getSharedPreferences("bh_injected", 0)
+    const-string v0, "bh_injected"
 
-    invoke-virtual {p0, p1, v0}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    const/4 v1, 0x0
 
-    move-result-object p1
+    invoke-virtual {p0, v0, v1}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    iput-object p1, p0, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->injectedPrefs:Landroid/content/SharedPreferences;
+    move-result-object v0
 
-    .line 61
+    iput-object v0, p0, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->injectedPrefs:Landroid/content/SharedPreferences;
+
+    # Restore selectedComponent from savedInstanceState
+    if-eqz p1, :cond_no_saved_state
+
+    const-string v0, "selected_component"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->selectedComponent:Ljava/lang/String;
+
+    :cond_no_saved_state
+    iget-object v0, p0, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->selectedComponent:Ljava/lang/String;
+
+    if-eqz v0, :cond_show_components
+
+    invoke-direct {p0}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->showOptions()V
+
+    return-void
+
+    :cond_show_components
     invoke-direct {p0}, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->showComponents()V
 
+    return-void
+.end method
+
+.method protected onSaveInstanceState(Landroid/os/Bundle;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Landroid/app/Activity;->onSaveInstanceState(Landroid/os/Bundle;)V
+
+    iget-object v0, p0, Lapp/revanced/extension/gamehub/ComponentManagerActivity;->selectedComponent:Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    const-string v1, "selected_component"
+
+    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     return-void
 .end method

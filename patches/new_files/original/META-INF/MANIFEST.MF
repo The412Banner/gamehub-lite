@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 
 Name: AndroidManifest.xml
-SHA-256-Digest: XvhbDjxH+dLd5IFUNJXe4lPiVsV43Qk/erTHmUrRApc=
+SHA-256-Digest: bxxCerpPj9zDP7ptRim8KyOodbxCSUDUT5LncFjBbCE=
 
 Name: META-INF/INDEX.LIST
 SHA-256-Digest: izuB7laRtWez3pnuur05VRKXG5FFXMQ3ePVFvFJcw2U=
@@ -668,6 +668,9 @@ SHA-256-Digest: QfhFdAa4BwO/cdjT4lkEx4lN1uXdT7bP5PqnMYFGRTE=
 Name: classes10.dex
 SHA-256-Digest: 9ei+27b+LNLerRSmS795S1vCuCXhqOp9wXfBsEqB4EU=
 
+Name: classes11.dex
+SHA-256-Digest: q/Xmnv2YagVWbqe+UEaZY5oYn8ZBCo70y50ihNZ0/wE=
+
 Name: classes2.dex
 SHA-256-Digest: 8MrO0xGiKrH3q3UQiLqvJL9rpvCmuTyh8QVyGxqBrU0=
 
@@ -678,7 +681,7 @@ Name: classes4.dex
 SHA-256-Digest: gzEtRxFwelV436OJC1mBdv1Isz0vyNsAd1rKZKYRQj8=
 
 Name: classes5.dex
-SHA-256-Digest: LiMcLx4iwTLVqdz5/s/CP0Cyx0EST+qPax/nY2KvD60=
+SHA-256-Digest: Bh+hNZ4qZz0LpoGNGwbgUCVVyuyvIcmoC+IuRuNmIAY=
 
 Name: classes6.dex
 SHA-256-Digest: 3kAqfmHlz/6MXIMP1yY/F8J5CwnE+7GraAHIc9aj+R4=
@@ -1934,7 +1937,7 @@ Name: res/color/mtrl_text_btn_text_color_selector.xml
 SHA-256-Digest: b8POWx9lrva7Ju6/yn123AkThpQeXCIQ8VQFYhhMIxQ=
 
 Name: res/color/rts_checkbox_tint.xml
-SHA-256-Digest: pu8KOGcBISeGQ4PnsSDGmRrdPYLTqX+BuomTm+yukqM=
+SHA-256-Digest: AU2r9wvjTDsP504/xuti7GekqEEB27ZRIWTK9QRSXDU=
 
 Name: res/color/spinner_item_selected_color.xml
 SHA-256-Digest: U1tSjis/1b+QSvtWFsonDP+kl0ioGX90jK/5mpfaN4s=
@@ -13377,13 +13380,13 @@ Name: res/drawable/round_button.xml
 SHA-256-Digest: LekaaDtMZQiju/V3BkiJqGn6ISX0dgd3dAX0IxGfDco=
 
 Name: res/drawable/rts_checkbox_button.xml
-SHA-256-Digest: dgFiIwGe0LB+yQL6hnZYOwMyspGwO+CuR200NN4k+ns=
+SHA-256-Digest: z4AfvjkiV299/nlkeqt3otOPUs7QdT0AeJjGHSeYfbA=
 
 Name: res/drawable/rts_checkbox_checked.xml
-SHA-256-Digest: lQWnbeakZ3NmngDo24fsm6nvlIGNsyYzS/2DD5YsWWs=
+SHA-256-Digest: YiEiz+GfMEYPVtd/jxLGT5a6a8rL/0i03QNb9rhONgA=
 
 Name: res/drawable/rts_checkbox_unchecked.xml
-SHA-256-Digest: K97rQ20gQJCsD9f7RSrRpVvQWhLy0O6qo2qZ3SQ4qqo=
+SHA-256-Digest: +sb6/zsZBGKm6g5aju5rWUIV1NzbjvbgCG3R3VFFN64=
 
 Name: res/drawable/rts_dialog_background.xml
 SHA-256-Digest: SeUgnoPeXtUknWebIpLb9q4D0Su5U0uao8WNdFr2GpA=
@@ -16479,13 +16482,13 @@ Name: res/layout/psstream_popup_options_item.xml
 SHA-256-Digest: +TRB3jcnX9pJt70GSLdKzoxiU6CuknV1aH/hOtvFvzk=
 
 Name: res/layout/rts_action_picker_dialog.xml
-SHA-256-Digest: XuSN0/JLIlu31MIxKfapfIddrqpwyZ31IwvkDFfub4U=
+SHA-256-Digest: CDKI/QcSQz6f/CX+aPuY2S7XSNi/oT0Uu8VJ4zIuQ54=
 
 Name: res/layout/rts_action_picker_item.xml
-SHA-256-Digest: nkrNGAhxP5XxPkZvvboMDnUc7TzOlT5wk6WdzP3I7HU=
+SHA-256-Digest: 8kxlmAHqu6IK51e7aZjYACG0cZ0o6t4V4/kflzLWQ3Y=
 
 Name: res/layout/rts_gesture_config_dialog.xml
-SHA-256-Digest: GC44UC+DDJEIosunBinNkRFs9KJ32L+pKczlyheaGvM=
+SHA-256-Digest: 3o0s/OFSDtfbk/M2f25yms9AfTUHdGZn5pU/1dlekWo=
 
 Name: res/layout/seekbarrelativelayout.xml
 SHA-256-Digest: o+iI2npJUKVowFdn7IuGNJ6Kkc/90fxn1KThQVqurmM=
@@ -17265,5 +17268,5 @@ Name: res/xml/util_code_provider_paths.xml
 SHA-256-Digest: 8i38oO5xU04c0nIlC2CaPHPMcf+BkHJ5JuCAp856B/E=
 
 Name: resources.arsc
-SHA-256-Digest: J5y/xsgdEQ2Ld7z1etKcDfdz3T6d6OsTApqPRS1baf8=
+SHA-256-Digest: PfiuftJs73reuzmwes4A/P//iIYDMOvQtMUQCiPBii8=
 

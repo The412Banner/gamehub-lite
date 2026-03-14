@@ -94,3 +94,14 @@
      new-instance v3, Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog$MenuItem;
  
      sget v14, Lcom/xj/landscape/launcher/R$drawable;->menu_setting_normal:I
+@@ -1583,6 +1526,10 @@
+ 
+     iget-object v4, v0, Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog;->m:Ljava/util/List;
+ 
++    invoke-static {v4}, Lapp/revanced/extension/gamehub/ComponentManagerHelper;->addComponentsMenuItem(Ljava/util/List;)V
++
++    iget-object v4, v0, Lcom/xj/landscape/launcher/ui/menu/HomeLeftMenuDialog;->m:Ljava/util/List;
++
+     invoke-static {v3, v4}, Lcom/xj/common/view/adapter/MultiViewHolderAdapterKt;->f(Landroidx/recyclerview/widget/RecyclerView$Adapter;Ljava/util/List;)V
+ 
+     :cond_1

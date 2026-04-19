@@ -294,6 +294,33 @@ apply_patches() {
     fi
 }
 
+apply_scripts() {
+    local scripts_dir="$PATCHES_DIR/scripts"
+    if [ ! -d "$scripts_dir" ]; then
+        return 0
+    fi
+
+    print_step "Running patch scripts..."
+    local count=0
+    local failed=0
+
+    for script in "$scripts_dir"/*.py; do
+        [ -f "$script" ] || continue
+        if python3 "$script" "$WORK_DIR/decompiled" 2>&1; then
+            count=$((count + 1))
+        else
+            failed=$((failed + 1))
+            print_warning "Script failed: $(basename "$script")"
+        fi
+    done
+
+    if [ $failed -gt 0 ]; then
+        print_warning "Ran $count scripts, $failed failed"
+    elif [ $count -gt 0 ]; then
+        print_success "Ran $count patch script(s) successfully"
+    fi
+}
+
 apply_binary_replacements() {
     print_step "Applying binary replacements..."
 
@@ -484,6 +511,7 @@ main() {
 
     apply_deletions
     apply_patches
+    apply_scripts
     apply_binary_replacements
     apply_additions
 

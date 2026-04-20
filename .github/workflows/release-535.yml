@@ -1,0 +1,68 @@
+name: Release 535
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g. v5.3.5)'
+        required: true
+      prerelease:
+        description: 'Mark as pre-release'
+        required: false
+        default: 'false'
+
+env:
+  SOURCE_APK_URL: https://github.com/The412Banner/gamehub-lite/releases/download/source-535/GameHub_5.3.5.apk
+  SOURCE_APK_MD5: e5e1b35b774c482a66333afc51eb14b2
+  APKTOOL_VERSION: "2.12.1"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 535-patch
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Install apktool
+        run: |
+          wget -q "https://github.com/iBotPeaches/Apktool/releases/download/v${APKTOOL_VERSION}/apktool_${APKTOOL_VERSION}.jar" \
+            -O /usr/local/bin/apktool.jar
+          cat > /usr/local/bin/apktool << 'WRAPPER'
+          #!/bin/bash
+          exec java -jar /usr/local/bin/apktool.jar "$@"
+          WRAPPER
+          chmod +x /usr/local/bin/apktool
+
+      - name: Download source APK
+        run: |
+          mkdir -p apk
+          wget -q "$SOURCE_APK_URL" -O apk/GameHub-5.3.5.apk
+          md5=$(md5sum apk/GameHub-5.3.5.apk | awk '{print $1}')
+          if [ "$md5" != "$SOURCE_APK_MD5" ]; then
+            echo "::error::MD5 mismatch: expected $SOURCE_APK_MD5, got $md5"
+            exit 1
+          fi
+          echo "MD5 verified: $md5"
+
+      - name: Build all variants
+        run: |
+          TAG="${{ github.event.inputs.tag }}"
+          RELEASE=true VERSION="${TAG#v}" ./patch535.sh
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.tag }}
+          name: GameHub Lite ${{ github.event.inputs.tag }}
+          prerelease: ${{ github.event.inputs.prerelease }}
+          files: output/*.apk
+          generate_release_notes: true

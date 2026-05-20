@@ -1,6 +1,6 @@
 --- a/smali_classes4/com/xj/winemu/sidebar/SidebarPerformanceFragment.smali
 +++ b/smali_classes4/com/xj/winemu/sidebar/SidebarPerformanceFragment.smali
-@@ -3165,3 +3165,12 @@
+@@ -3165,3 +3165,13 @@
      :cond_1
      return-void
  .end method

@@ -27,7 +27,7 @@
      <item type="id" name="switch_screen_brightness" />
      <item type="id" name="switch_touch_screen_mouse_control" />
      <item type="id" name="switch_view" />
-@@ -3338,4 +3351,19 @@
+@@ -3338,4 +3351,22 @@
      <item type="id" name="xy_together_max" />
      <item type="id" name="yesTv" />
      <item type="id" name="zh_bgImage" />
@@ -46,4 +46,7 @@
 +    <item type="id" name="rts_action_option_2" />
 +    <item type="id" name="rts_action_option_2_text" />
 +    <item type="id" name="rts_action_option_2_check" />
++    <item type="id" name="frame_gen_container" />
++    <item type="id" name="switch_frame_gen" />
++    <item type="id" name="btn_frame_gen_settings" />
  </resources>

@@ -207,7 +207,7 @@
  .method public final g3(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
      .locals 3
  
-@@ -4105,10 +4257,70 @@
+@@ -4105,10 +4257,72 @@
  .end method
  
  .method public onCreate(Landroid/os/Bundle;)V
@@ -215,6 +215,8 @@
 +    .locals 12
  
      invoke-super {p0, p1}, Lcom/xj/common/view/focus/focus/app/FocusableAppCompatActivity;->onCreate(Landroid/os/Bundle;)V
++
++    invoke-static {p0}, Lcom/xj/winemu/sidebar/BhFrameGenWriter;->applyFromPrefs(Landroid/content/Context;)V
 +
 +    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 +

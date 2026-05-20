@@ -229,3 +229,5 @@ smali_classes5/com/xj/pcvirtualbtn/inputcontrols/InputControlsManager.smali
 res/layout/winemu_sidebar_controls_fragment.xml
 smali_classes4/com/winemu/core/controller/X11Controller.smali
 smali_classes4/com/winemu/openapi/WinUIBridge.smali
+smali_classes4/com/xj/winemu/sidebar/SidebarPerformanceFragment.smali
+res/layout/winemu_sidebar_hub_type_fragment.xml
